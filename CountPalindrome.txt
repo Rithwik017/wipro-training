@@ -1,28 +1,23 @@
 using System;
-
 class Program
 {
     static void Main()
     {
         Console.WriteLine("Enter a sentence:");
         string input = Console.ReadLine();
-
         string[] words = input.Split(' ');
         int count = 0;
-
         foreach (string word in words)
         {
             string lowerWord = word.ToLower();
             char[] ch = lowerWord.ToCharArray();
             Array.Reverse(ch);
             string reversed = new string(ch);
-
             if (lowerWord == reversed)
             {
                 count++;
             }
         }
-
         Console.WriteLine("Total Count of Palindrome Words : " + count);
     }
 }
