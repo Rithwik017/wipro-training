@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-class Program
+namespace StringPrograms
 {
-    static void Main()
+    internal class PalindromeCount
     {
-        Console.WriteLine("Enter a sentence:");
-        string input = Console.ReadLine();
-        string[] words = input.Split(' ');
-        int count = 0;
-        foreach (string word in words)
+        static void Main()
         {
-            string lowerWord = word.ToLower();
-            char[] ch = lowerWord.ToCharArray();
-            Array.Reverse(ch);
-            string reversed = new string(ch);
-            if (lowerWord == reversed)
+            Console.WriteLine("Enter a sentence:");
+            string input = Console.ReadLine().ToLower();
+            string[] words = input.Split(' ');
+            int count = 0;
+            foreach (string word in words)
             {
-                count++;
+                char[] arr = word.ToCharArray();
+                Array.Reverse(arr);
+                string reversed = new string(arr);
+
+                if (word == reversed)
+                    count++;
             }
+            Console.WriteLine("Total Count of Palindrome Words: " + count);
         }
-        Console.WriteLine("Total Count of Palindrome Words : " + count);
     }
 }
-
